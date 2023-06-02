@@ -1,6 +1,4 @@
-FROM openjdk:8-jdk-alpine
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-ARG JAR_FILE=spring-boot-rest-api/*.jar
-COPY --from=build /spring-boot-rest-api/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+# Basic nginx dockerfile starting with Ubuntu 20.04
+FROM ubuntu:20.04
+RUN apt-get -y update
+RUN apt-get -y install nginx
